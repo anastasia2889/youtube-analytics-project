@@ -30,7 +30,7 @@ class Channel:
 
 
     def print_info(self) -> None:
-        """Выводит в консоль информацию о канале."""
+        """Выводит в консоль информацию о  канале."""
         self.printj(self.channel)
 
     @property
