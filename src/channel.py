@@ -23,9 +23,20 @@ class Channel:
         self.view_count = self.channel['items'][0]['statistics']['viewCount']
         self.video_count = self.channel['items'][0]['statistics']['videoCount']
 
+    @staticmethod
+    def printj(dict_to_print) -> None:
+            """выводит словарь в json-подобном удобном формате с отступами"""
+            print(json.dumps(dict_to_print, indent=2, ensure_ascii=False))
+
+
     def print_info(self) -> None:
         """Выводит в консоль информацию о канале."""
         self.printj(self.channel)
+
+    @property
+    def channel_id(self):
+        """Возвращает id канала"""
+        return self.__channel_id
 
     @classmethod
     def get_service(cls):
@@ -42,4 +53,4 @@ class Channel:
                 'view_count': self.view_count,
                 'video_count': self.video_count
             }
-            json.dump(data, file, ensure_ascii=False)
+            json.dump(data, file, ensure_ascii=False, indent=4)
