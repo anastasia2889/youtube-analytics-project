@@ -1,3 +1,5 @@
+from builtins import str
+
 from src.video import Video, PLVideo
 
 if __name__ == '__main__':

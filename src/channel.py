@@ -9,7 +9,7 @@ from googleapiclient.discovery import build
 
 class Channel:
     """Класс для ютуб-канала"""
-    api_key = os.getenv('API_KEY')  # YT_API_KEY скопирован из гугла и вставлен в переменные окружения
+    api_key = os.getenv('YT_API_KEY')  # API_KEY скопирован из гугла и вставлен в переменные окружения
     youtube = build('youtube', 'v3', developerKey=api_key)  # создать специальный объект для работы с API
 
     def __init__(self, channel_id) -> None:
@@ -28,7 +28,7 @@ class Channel:
          return f'{self.title},{self.url}'
 
     def __add__(self, other):
-            return int(self.subscriber_count)  + int(other.subscriber_count)
+            return int(self.subscriber_count) + int(other.subscriber_count)
 
     def __sub__(self, other):
             return int(self.subscriber_count) - int(other.subscriber_count)
@@ -51,7 +51,7 @@ class Channel:
 
     @staticmethod
     def printj(dict_to_print) -> None:
-            """выводит словарь в json-подобном удобном формате с отступами"""
+            """Выводит словарь в json-подобном удобном формате с отступами"""
             print(json.dumps(dict_to_print, indent=2, ensure_ascii=False))
 
 
